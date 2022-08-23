@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnCD());
+        //InvokeRepeating("Spawn", 0.5f, spawnCD);
     }
 
     // Update is called once per frame
@@ -20,12 +21,16 @@ public class SpawnManager : MonoBehaviour
     }
     IEnumerator SpawnCD()
     {
-        
-        yield return new WaitForSeconds(spawnCD );
-        
-        
+
+        yield return new WaitForSeconds(spawnCD);
+
+        Spawn();
+    }
+
+    private void Spawn()
+    {
         int s = Random.Range(0, spawners.Length);
-        spawners[s].Spawn(Random.Range(0, spawners[s].obstacles.Length),aceleration);
+        spawners[s].Spawn(Random.Range(0, spawners[s].obstacles.Length), aceleration);
         if (spawnCD > minSpeed) spawnCD -= aceleration;
         StartCoroutine(SpawnCD());
     }
