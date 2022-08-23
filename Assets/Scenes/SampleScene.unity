@@ -542,6 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 781590186239800317, guid: 9401c6da4531dd14a857de60f1f494e9, type: 3}
+  - {fileID: 781590186239800317, guid: 45bee6991f00fbc4cad358fcc0397366, type: 3}
   speed: 10
 --- !u!1 &1666808223
 GameObject:

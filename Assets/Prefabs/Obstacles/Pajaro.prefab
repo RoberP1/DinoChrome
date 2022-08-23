@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 352906882}
   - component: {fileID: 352906886}
   m_Layer: 0
-  m_Name: Obstacle 1
+  m_Name: Pajaro
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,7 @@ RectTransform:
   m_GameObject: {fileID: 8698178179674324462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 1}
   m_Children:
   - {fileID: 8626100833566376410}
   m_Father: {fileID: 4978004865438463393}
