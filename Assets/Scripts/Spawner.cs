@@ -6,20 +6,11 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] obstacles;
     public float speed = 1;
-    void Start()
+    public void Spawn(float aceleration)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void Spawn(int r, float a)
-    {
-       GameObject obstacle = Instantiate(obstacles[r], transform.position, Quaternion.identity);
-       obstacle.GetComponent<Obstacle>().vel = speed;
-        speed += a;
+        int randomNumber = Random.Range(0, obstacles.Length);
+        GameObject obstacle = Instantiate(obstacles[randomNumber], transform.position, Quaternion.identity);
+        obstacle.GetComponent<Obstacle>().vel = speed;
+        speed += aceleration;
     }
 }
