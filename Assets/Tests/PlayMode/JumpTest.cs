@@ -15,7 +15,6 @@ public class JumpTest
         Ground.name = "Ground";
         Ground.size = new Vector2(10, 1);
         Ground.transform.position = new Vector2(0, -5);
-        
 
         var player = new GameObject().AddComponent<Player>();
         player.gameObject.AddComponent<BoxCollider2D>();
@@ -31,12 +30,14 @@ public class JumpTest
         yield return new WaitForSeconds(0.5f);
         
         Assert.IsTrue(player.transform.position.y > playerY);
-
+        
+        Assert.IsFalse(player.grounded);
+        
         float velY = player.GetComponent<Rigidbody2D>().velocity.y;
         player.Jump();
         
+        yield return new WaitForSeconds(0.1f);
+        
         Assert.IsFalse(player.GetComponent<Rigidbody2D>().velocity.y > velY);
-
-
     }
 }

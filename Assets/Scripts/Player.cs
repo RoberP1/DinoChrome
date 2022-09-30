@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public static Action OnDead;
 
     public float jumpForce = 10;
-    [SerializeField] private bool grounded;
+    public bool grounded;
     void Start()
     {
         grounded = true;
