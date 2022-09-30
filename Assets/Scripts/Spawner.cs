@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     {
         int randomNumber = Random.Range(0, obstacles.Length);
         GameObject obstacle = Instantiate(obstacles[randomNumber], transform.position, Quaternion.identity);
+        obstacle.SetActive(true);
         obstacle.GetComponent<Obstacle>().vel = speed;
         speed += aceleration;
     }

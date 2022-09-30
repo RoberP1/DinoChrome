@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     public KeyCode jumpKey;
 
     public static Action OnDead;
 
-    [SerializeField] float jumpForce = 10;
-    [SerializeField] private LayerMask ground;
+    public float jumpForce = 10;
     [SerializeField] private bool grounded;
     void Start()
     {
@@ -16,11 +15,17 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(jumpKey)&& grounded)
+        if (Input.GetKeyDown(jumpKey))
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            grounded = false;
+            Jump();
         }
+    }
+
+    public void Jump()
+    {
+        if (!grounded) return;
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        grounded = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,9 +34,6 @@ public class Player : MonoBehaviour
         {
             grounded = true;
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             OnDead?.Invoke();
